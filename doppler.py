@@ -21,6 +21,7 @@ class Doppler:
             line_vector: np.ndarray = self.source_coordinate - self.observer_coordinates
             return (np.dot(line_vector, vector)/np.sqrt(np.dot(line_vector, line_vector)))
         self.component_along_vector = component_along_line
+        self.distance = self.component_along_vector(self.source_coordinate - self.observer_coordinates)
 
     def apparent_frequency(self) -> float:
         vs = self.component_along_vector(self.v_source)
